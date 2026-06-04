@@ -16,18 +16,37 @@
       background: #f0f0f0;
     }
 
-    .ar-button {
-      display: inline-block;
-      padding: 14px 28px;
-      background-color: #0071e3;
-      color: white;
+    .ar-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-decoration: none;
-      border-radius: 12px;
-      font-size: 18px;
       margin-top: 20px;
     }
 
-    .ar-button:hover {
+    .ar-link img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      display: block;
+    }
+
+    .ar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 12px 24px;
+      background-color: #0071e3;
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-family: sans-serif;
+    }
+
+    .ar-link:hover .ar-badge {
       background-color: #005bb5;
     }
   </style>
@@ -38,14 +57,15 @@
   <p>Open this page on your iPhone or iPad to view the 3D model in AR.</p>
 
   <!--
-    The key parts for iOS AR Quick Look:
-    1. The <a> tag must have "rel=ar"
+    iOS AR Quick Look requirements:
+    1. The <a> tag must have rel="ar"
     2. href points to the .usdz file
     3. An <img> must be the FIRST child of the <a> tag (required by Safari)
+       — this img also acts as the thumbnail
   -->
-    <img src="./st_stableDirty-structure-content-standalone-main-v005.png">
-    <a href="./st_stableDirty-structure-content-standalone-main-v005.usdz" rel="ar" class="ar-button">
-    View in AR 🪄
+  <a href="st_stableDirty-structure-content-standalone-main-v005.usdz" rel="ar" class="ar-link">
+    <img src="st_stableDirty-structure-content-standalone-main-v005.png" alt="3D Model Preview" />
+    <span class="ar-badge">View in AR 🪄</span>
   </a>
 
 </body>
